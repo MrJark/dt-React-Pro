@@ -1,7 +1,9 @@
 // import { Counter } from "./components/Counter"
 // import { User } from "./components/User"
+// import { Timer } from "./components/Timer"
 
-import { Timer } from "./components/Timer"
+import { CounterReducer } from "./components/CounterReducer"
+
 
 
 
@@ -14,7 +16,8 @@ function App () {
             <hr />
             {/* <Counter /> */}
             {/* <User /> */}
-            <Timer />
+            {/* <Timer /> */}
+            <CounterReducer />
         </>
     )
 }
