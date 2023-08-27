@@ -49,6 +49,7 @@ export const CounterReducer = () => {
             <div>
                 <button className=" btn btn-outline-secondary" onClick={() => dispatch({ type: 'increment' })}>+1</button>
                 <button className=" btn btn-outline-secondary" onClick={() => dispatch({ type: 'decrement' })}>-1</button>
+                <button className=" btn btn-outline-success" onClick={() => dispatch({ type: 'custom', payload: 100 })}>100</button>
             </div>
         </>
     )
