@@ -12,7 +12,6 @@ export const Form = () => {
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => { // el evento es un tipo de dato que depende de lo que esté haciendo la función, en este caso es de tipo change, ChangeEvent, y como es un input es de tipo HTMLInputElement
         const { target } = e;
         const { name, value } = target;
-        console.log(e);
         
         setForm({
             ...form,

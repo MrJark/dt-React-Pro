@@ -1,25 +1,27 @@
-import { ChangeEvent, useState } from "react"
 
-const initialState = {
-    email: '',
-    name: ''
-}
+import { useForm } from "../hooks/useForm"
+
 
 export const Form = () => {
 
-    const [form, setForm] = useState(initialState);
+    // Comentado porque se va como customHook
+    // const [form, setForm] = useState(initialState);
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => { // el evento es un tipo de dato que depende de lo que esté haciendo la función, en este caso es de tipo change, ChangeEvent, y como es un input es de tipo HTMLInputElement
-        const { target } = e;
-        const { name, value } = target;
-        console.log(e);
+    // const handleChange = (e: ChangeEvent<HTMLInputElement>) => { // el evento es un tipo de dato que depende de lo que esté haciendo la función, en este caso es de tipo change, ChangeEvent, y como es un input es de tipo HTMLInputElement
+    //     const { target } = e;
+    //     const { name, value } = target;
         
-        setForm({
-            ...form,
-            [ name ]: value // aquí el name, no es el del objeto initialState, sino el nambe del input que le he puesto como identificador
-        })
+    //     setForm({
+    //         ...form,
+    //         [ name ]: value // aquí el name, no es el del objeto initialState, sino el nambe del input que le he puesto como identificador
+    //     })
         
-    }
+    // }
+
+    const { form, handleChange } = useForm({
+        email: '',
+        name: ''
+    })
 
     return (
         <form autoComplete="off">
