@@ -1,8 +1,8 @@
 import { ChangeEvent, useState } from "react"
 
 const initialState = {
-    email: '',
-    name: ''
+    postcode: '',
+    city: ''
 }
 
 export const Form = () => {
@@ -24,18 +24,18 @@ export const Form = () => {
     return (
         <form autoComplete="off">
             <div className="mb-3">
-                <label className="form-label">Email:</label>
-                <input type="email" 
+                <label className="form-label">Postcode:</label>
+                <input type="text" 
                     className="form-control"
-                    name="email"
+                    name="postcode"
                     onChange={handleChange}
                 />
             </div>
             <div className="mb-3">
-                <label className="form-label">Name:</label>
+                <label className="form-label">City:</label>
                 <input type="text" 
                     className="form-control"
-                    name="name"
+                    name="city"
                     onChange={handleChange}
                 />
             </div>
