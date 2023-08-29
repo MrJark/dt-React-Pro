@@ -1,6 +1,11 @@
 
 import { useForm } from "../hooks/useForm"
 
+interface FormData {
+    email: string,
+    name: string,
+    age: number
+}
 
 export const Form = () => {
 
@@ -18,10 +23,13 @@ export const Form = () => {
         
     // }
 
-    const { form, handleChange } = useForm({
-        email: '',
-        name: ''
+    const { form, handleChange } = useForm<FormData>({
+        email: 'chema',
+        name: 'chema@',
+        age: 25
     })
+
+    // const { name, email, age } = form;
 
     return (
         <form autoComplete="off">
@@ -31,6 +39,7 @@ export const Form = () => {
                     className="form-control"
                     name="email"
                     onChange={handleChange}
+                    value={form.email}
                 />
             </div>
             <div className="mb-3">
@@ -39,6 +48,17 @@ export const Form = () => {
                     className="form-control"
                     name="name"
                     onChange={handleChange}
+                    value={form.name}
+                />
+            </div>
+
+            <div className="mb-3">
+                <label className="form-label">Age:</label>
+                <input type="number" 
+                    className="form-control"
+                    name="age"
+                    onChange={handleChange}
+                    value={form.age}
                 />
             </div>
 

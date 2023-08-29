@@ -2,8 +2,9 @@
 // import { User } from "./components/User"
 // import { Timer } from "./components/Timer"
 // import { CounterReducer } from "./components/CounterReducer"
+// import { Form } from "./components/Form"
+// import { Form2 } from "./components/Form2"
 
-import { Form } from "./components/Form"
 
 
 
@@ -20,7 +21,9 @@ function App () {
             {/* <Timer /> */}
             {/* <CounterReducer /> */}
             {/* custom hooks 👇🏼 */}
-            <Form />
+            {/* <Form />
+            <Form2 /> */}
+            
         </>
     )
 }
