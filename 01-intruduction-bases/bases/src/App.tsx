@@ -9,7 +9,7 @@ function App () {
             <h1>React</h1>
             <hr />
             <Counter initialValue={15}/>
-            <CounterBy initialValue={5}/>
+            <CounterBy initialValue={5} />
         </>
     )
 }
