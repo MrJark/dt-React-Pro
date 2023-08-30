@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react';
+import { gsap } from 'gsap';
 
 const MAX_COUNT = 10;
 
@@ -19,16 +20,18 @@ export const CounterEffect = () => {
     };
 
     useEffect(() => {
-      if( counter <= 10 ) return;
+      if( counter < 10 ) return;
 
-      
+      // animaciones al llegar al max
+      gsap.to('h3',{ y: -20, duration: 10 })
         
     }, [counter])
     
 
     return (
         <>
-            <h2>CounterEffect: { counter }</h2>
+            <h2>CounterEffect:</h2>
+            <h3> { counter } </h3>
 
             <button onClick={handleClickUp}>+1</button>
             <button onClick={handleClickDown}>-1</button>
