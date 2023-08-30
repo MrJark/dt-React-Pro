@@ -32,7 +32,7 @@ export const CounterBy = ({ initialValue = 5 }: Props) => {
     // Tarea: ver el valor del counter y de los clicks (❌ no he sabido como quitar los errores de types. Tenia que tener un objeto en el setCounterState)
     return (
         <>
-            <h2>Counter: { counter }</h2>
+            <h2>CounterBy: { counter }</h2>
             <h2>Clicks: { clicks }</h2>
 
             <button onClick={() => handleClickUp(1)}>+1</button>
