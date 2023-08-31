@@ -1,11 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { MAX_COUNT } from '../constants';
 
 
-export function useCounter () {
+export function useCounter ({ maxCount = MAX_COUNT }) {
 
     const [counter, setCounter] = useState(5);
+
+    const tl = useRef( gsap.timeline() ); // esto es para que solo se me cree una vez el time line del gsap porque sino, cada vez que el counter cambia, este hará la animación
 
     /**
      * el useRef hace que no se renderice el componente otra vez y que mantenga su valor aunque lo demás cambie
@@ -17,7 +19,7 @@ export function useCounter () {
 
     const handleClickUp = () => {
         // setCounter( counter + 1 ); // forma simple
-        if ( counter >= MAX_COUNT ) return; // solución valida para tener el máx y que se pare ahí
+        if ( counter >= maxCount ) return; // solución valida para tener el máx y que se pare ahí
         setCounter( prev => prev + 1 ); // otra forma de hacerlo
         // otra forma de hacer el max do👇🏼
         // setCounter( prev => Math.min( prev + 1, MAX_COUNT) ); // otra forma de hacerlo en una sola línea eliminando las dos de arriba
@@ -27,8 +29,18 @@ export function useCounter () {
         setCounter( counter - 1 );
     };
 
+    useLayoutEffect(() => { // es igual que el useEffect pero para cunado el layout ya está creado
+
+        if ( !counterElement.current ) return ;
+
+        tl.current.to( counterElement.current ,{ y: -20, duration: 0.5, ease: 'ease.out' } )
+            .to( counterElement.current , {y: 0, duration: 0.2, ease: 'bounce.out'} )
+            .pause()
+
+    }, []) // dependen vacia para que solo se ejecute la primera vez
+
     useEffect(() => {
-      if( counter < 10 ) return;
+    //   if( counter < 10 ) return;
 
       // animaciones al llegar al max ( mala práctica en la forma en la cual está construida )
     //   gsap.to( counterElement.current ,{ y: -20, duration: 0.5, ease: 'ease.out' }) // para saber que elemntos tiene, buscar la doc de gspa y como son promesas, puedo usar los .then y .catch
@@ -36,11 +48,12 @@ export function useCounter () {
     //         gsap.to( counterElement.current , {y: 0, duration: 0.2, ease: 'bounce.out'} )
     //     })
         // buena práctica de construcción del gsap
-        const timeLine = gsap.timeline();
+        // const timeLine = gsap.timeline(); // elimino esto porque ya he creado el timeline en el useRef para que solo se ejecute una vez, al inicio
 
-        timeLine.to( counterElement.current ,{ y: -20, duration: 0.5, ease: 'ease.out' } )
-                .to( counterElement.current , {y: 0, duration: 0.2, ease: 'bounce.out'} );
+        // tl.current.to( counterElement.current ,{ y: -20, duration: 0.5, ease: 'ease.out' } )
+        //     .to( counterElement.current , {y: 0, duration: 0.2, ease: 'bounce.out'} );
 
+        tl.current.play(0); // para que se ejecute en el segundo cero y cada vez que cambie el counter
 
     }, [counter])
 
