@@ -1,9 +1,9 @@
-import { CounterState } from "./interfaces";
+import { CounterState } from "./typings/interfaces";
 
 const MAX_COUNT = 10;
 
 const INITIAL_STATE: CounterState = {
-    counter: 10,
+    counter: 0,
     previous: 0,
     changes: 0
 }
