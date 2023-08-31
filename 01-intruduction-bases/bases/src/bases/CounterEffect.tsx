@@ -1,11 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import { MAX_COUNT } from '../constants';
 
-const MAX_COUNT = 10;
+
 
 export const CounterEffect = () => {
 
     const [counter, setCounter] = useState(5);
+
+    /**
+     * el useRef hace que no se renderice el componente otra vez y que mantenga su valor aunque lo demás cambie
+     * por tanto, voy a usar el useRef para hacer referencia al elemento el cual quiero animar con gsoa y que no haya otro igual 
+     * ya que si tengo otro elemento igual, con el mismo id, className o name, me lo va a animar porque está obteniendo el mismo nombre
+    */
+    const counterElement = useRef<HTMLHeadingElement>(null); // inicializo en null para que no se queje ts
+
 
     const handleClickUp = () => {
         // setCounter( counter + 1 ); // forma simple
@@ -22,16 +31,25 @@ export const CounterEffect = () => {
     useEffect(() => {
       if( counter < 10 ) return;
 
-      // animaciones al llegar al max
-      gsap.to('h3',{ y: -20, duration: 10 })
-        
+      // animaciones al llegar al max ( mala práctica en la forma en la cual está construida )
+    //   gsap.to( counterElement.current ,{ y: -20, duration: 0.5, ease: 'ease.out' }) // para saber que elemntos tiene, buscar la doc de gspa y como son promesas, puedo usar los .then y .catch
+    //     .then( () => {
+    //         gsap.to( counterElement.current , {y: 0, duration: 0.2, ease: 'bounce.out'} )
+    //     })
+        // buena práctica de construcción del gsap
+        const timeLine = gsap.timeline();
+
+        timeLine.to( counterElement.current ,{ y: -20, duration: 0.5, ease: 'ease.out' } )
+                .to( counterElement.current , {y: 0, duration: 0.2, ease: 'bounce.out'} );
+
+
     }, [counter])
     
 
     return (
         <>
             <h2>CounterEffect:</h2>
-            <h3> { counter } </h3>
+            <h3 ref={ counterElement } > { counter } </h3>
 
             <button onClick={handleClickUp}>+1</button>
             <button onClick={handleClickDown}>-1</button>
