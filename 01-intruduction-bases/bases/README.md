@@ -8,4 +8,4 @@ Esta app la he inicializado con **pnpm**
 
 ## Anotaciones
 
-- La diferencia entre **types** e **interfaces** es que estas últimas son menos rígidas y permiten una mayor extensión
+- La diferencia entre **types** e **interfaces** es que estas últimas son menos rígidas y permiten una mayor extensión. Las acciones en los useReducer se suelen hacer con los types porque no van a crecer

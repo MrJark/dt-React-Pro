@@ -1,5 +1,5 @@
 
-import { Counter, CounterBy, CounterEffect, CounterHook } from "./bases";
+import { Counter, CounterBy, CounterEffect, CounterHook, CounterReducerComponent } from "./bases";
 
 
 
@@ -12,6 +12,7 @@ function App () {
             <CounterBy initialValue={5} />
             <CounterEffect />
             <CounterHook />
+            <CounterReducerComponent initialValue={15}/>
         </>
     )
 }
