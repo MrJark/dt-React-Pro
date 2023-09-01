@@ -3,6 +3,9 @@ import { INITIAL_STATE } from '../constants'
 
 import { counterReducer } from './states/counterReducer';
 
+// cuando importas muchos elementos, muchas veces 
+import { doDecreaseBy, doIncreaseBy, doReset } from './actions/actions';
+
 export const CounterReducerComponentRefactor = () => {
 
     // const [state, dispatch] = useReducer(counterReducer, INITIAL_STATE); // puedo desestructurar del state
@@ -11,16 +14,18 @@ export const CounterReducerComponentRefactor = () => {
     const handleReset = () => {
         // setCounter( counter + 1 ); // forma simple
         // setCounter( prev => prev + 1 ); // otra forma de hacerlo
-        dispatch( { type: 'reset' } )
+        dispatch( doReset() ) // cambió el {type: 'reset'} a uma función
     };
     const handleClickUp = ( value: number ) => {
         // setCounter( counter - 1 );
-        dispatch({ type: 'increaseBy', payload: { value } })
+        // dispatch({ type: 'increaseBy', payload: { value } })
+        dispatch( doIncreaseBy(value) )
     };
     const handleClickDown = ( value: number ) => {
         // if( counter <= 0 ) return;
         // setCounter( counter - 1 );
-        dispatch({ type: 'decreaseBy', payload: { value } })
+        // dispatch({ type: 'decreaseBy', payload: { value } })
+        dispatch( doDecreaseBy(value) )
     };
 
     return (
