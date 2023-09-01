@@ -1,32 +1,7 @@
 import { useReducer } from 'react'
 import { INITIAL_STATE } from '../constants'
-import { CounterState } from '../typings/interfaces'
-import { CounterAction } from '../typings/types';
 
-const counterReducer = ( state: CounterState, action: CounterAction ): CounterState => {
-
-    switch (action.type) {
-        case 'reset':
-            return {
-                counter: 0,
-                changes: 0,
-                previous: 0,
-            }
-        case 'increaseBy':
-            return {
-                changes: state.changes + 1,
-                counter: state.counter + action.payload.value,
-                previous: state.counter,
-            }
-        case 'decreaseBy':
-            return {
-                changes: state.changes + 1,
-                counter: state.counter - action.payload.value,
-                previous: state.counter,
-            }
-        }
-    return state;
-}
+import { counterReducer } from './states/counterReducer';
 
 export const CounterReducerComponentRefactor = () => {
 
