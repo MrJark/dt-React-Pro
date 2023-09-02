@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes, NavLink } from 'react-router-dom';
 
 import { routes } from './routes';
 import { Suspense } from 'react';
+import { Page404 } from '../01-lazyload/pages';
 
 
 
@@ -10,7 +11,7 @@ export const Navigation = () => {
     /* Para usar el Lazy tenemos que envolver el Browser en el Suspense, componente de React el cual le dice que para la carga y solo la haga cuando sea necesario y teneos que ponerle el fallback que es lo que renderiza mientras carga*/
     return (
         <>
-            <Suspense fallback={ <span>Loading...</span> } >
+            <Suspense >
                 <BrowserRouter>
                     <div className='main-layout'>
                         <nav> 
@@ -20,7 +21,7 @@ export const Navigation = () => {
                                     routes.map( route => {
                                         return (
                                             route.to === '' 
-                                                ? null
+                                                ? null // el null ya no funciona porque con el lazy he tenido que quitar la ruta 404 porque no hacía el lazyloading
                                                 : <li key={route.to}>
                                                         <NavLink
                                                             to={route.to}
@@ -54,6 +55,8 @@ export const Navigation = () => {
                                     )
                                 })
                             }
+                            <Route path='*' element={ <Page404 /> } /> 
+                            {/* tnego que hacerloa sí 👆🏽 por el lazy sino, no se puede mostrar la 404 */}
                             {/* <Route path='*' element={ <Page404 /> } />
                             <Route path='/lazy1' element={ <LazyPage1 /> } />
                             <Route path='/lazy2' element={ <LazyPage2 /> } />

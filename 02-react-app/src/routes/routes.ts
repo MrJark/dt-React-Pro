@@ -1,5 +1,5 @@
-import { Lazy1, Lazy2, Lazy3 } from "../01-lazyload/components/LazyLoading";
-import { Page404 }from "../01-lazyload/pages";
+import { Lazy1, Lazy2, Lazy3 } from "../01-lazyload/components/Lazy";
+// import { Page404 } from "../01-lazyload/pages";
 import { Route } from "../01-lazyload/typings/interfaces";
 
 
@@ -23,12 +23,12 @@ const routes: Route[] = [
         Component: Lazy3,
         name: 'Lazy 3'
     },
-    {
-        to: '',
-        path: '*',
-        Component: Page404,
-        name: '404 Page'
-    }
+    // { // no puedo tener esta ruta porque me da error
+    //     to: '',
+    //     path: '*',
+    //     Component: Page404,
+    //     name: '404 Page'
+    // }
 ];
 
 export {
