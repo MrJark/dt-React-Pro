@@ -1,8 +1,11 @@
+import { LazyExoticComponent } from 'react';
+import { JSXComponent } from './types';
+
 
 interface Route {
     to: string,
     path: string,
-    Component: () => JSX.Element
+    Component: LazyExoticComponent< JSXComponent > | JSXComponent
     name: string,
 }
 
