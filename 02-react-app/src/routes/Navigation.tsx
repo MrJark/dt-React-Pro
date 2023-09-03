@@ -2,7 +2,8 @@ import { BrowserRouter, Route, Routes, NavLink } from 'react-router-dom';
 
 import { routes } from './routes';
 import { Suspense } from 'react';
-import { Page404 } from '../01-lazyload/pages';
+
+
 
 
 
@@ -11,13 +12,13 @@ export const Navigation = () => {
     /* Para usar el Lazy tenemos que envolver el Browser en el Suspense, componente de React el cual le dice que para la carga y solo la haga cuando sea necesario y teneos que ponerle el fallback que es lo que renderiza mientras carga*/
     return (
         <>
-            <Suspense >
+            <Suspense fallback={<h2>Loading...</h2>}>
                 <BrowserRouter>
                     <div className='main-layout'>
                         <nav> 
                             <img src="https://mrjark.com/wp-content/uploads/2023/04/cropped-favicon-mrjark-32x32.png" alt="mrjark logo" />
                             <ul>
-                                {
+                                {/* {
                                     routes.map( route => {
                                         return (
                                             route.to === '' 
@@ -28,6 +29,18 @@ export const Navigation = () => {
                                                             className={ ({ isActive }) => isActive ? 'nav-active' : ''}
                                                         >{route.name}</NavLink>
                                                     </li>
+                                        )
+                                    })
+                                } */}
+                                {
+                                    routes.map( route => {
+                                        return (
+                                            <li key={route.to}>
+                                                <NavLink
+                                                    to={route.to}
+                                                    className={ ({ isActive }) => isActive ? 'nav-active' : ''}
+                                                >{route.name}</NavLink>
+                                            </li>
                                         )
                                     })
                                 }
@@ -55,7 +68,6 @@ export const Navigation = () => {
                                     )
                                 })
                             }
-                            <Route path='*' element={ <Page404 /> } /> 
                             {/* tnego que hacerloa sí 👆🏽 por el lazy sino, no se puede mostrar la 404 */}
                             {/* <Route path='*' element={ <Page404 /> } />
                             <Route path='/lazy1' element={ <LazyPage1 /> } />
