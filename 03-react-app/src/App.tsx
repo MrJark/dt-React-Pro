@@ -1,7 +1,8 @@
 
 import './App.css'
-
 import { Navigation } from './routes/Navigation'
+
+
 
 function App() {
 
@@ -9,7 +10,6 @@ function App() {
     return (
         <>
             <h1>Esto es un div, no?</h1>
-            <br />
             <Navigation />
         </>
     )

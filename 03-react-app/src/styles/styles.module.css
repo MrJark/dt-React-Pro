@@ -23,24 +23,26 @@
     margin: 10px;
     display: flex;
     flex-direction: row;
+    place-content: center;
+    align-items: center;
+    gap: 4px;
 }
 
 .buttonMinus {
     cursor: pointer;
-    background-color: transparent;
-    border: 1px solid black;
-    border-radius: 5px 0px 0px 5px;
-    font-size: 20px;
-    width: 30px;
+    display: flex;
+    place-content: center;
+    background-color: #232323;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 40px;
 }
 
 .buttonMinus:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #393939;
 }
 
 .countLabel {
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
     font-size: 16px;
     height: 25px;
     padding-top: 5px;
@@ -50,13 +52,14 @@
 
 .buttonAdd {
     cursor: pointer;
-    background-color: transparent;
-    border: 1px solid black;
-    border-radius: 0px 5px 5px 0px;
-    font-size: 20px;
-    width: 30px;
+    display: flex;
+    place-content: center;
+    background-color: #232323;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 40px;
 }
 
 .buttonAdd:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #393939;
 }
