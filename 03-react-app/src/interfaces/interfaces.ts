@@ -11,9 +11,14 @@ interface Product {
     description?: string,
 }
 
-
+/* Sub Cart Components */
+interface ProductButtonsProps {
+    counter: number,
+    countBy: (value: number) => void,
+}
 
 export type {
     Product,
     Props,
+    ProductButtonsProps,
 }
