@@ -1,4 +1,4 @@
-import { ProductCard } from "../components/ProductCard"
+import { ProductCard } from "../components"
 import { ProductButtons, ProductImage, ProductTitle } from "../components/subCardComponent"
 import { Product } from "../interfaces/interfaces"
 
@@ -30,11 +30,11 @@ export const ShoppingPage = () => {
                     <ProductCard product={ product }>
                             {/* otra forma común de hacerlo 👇🏼 y esto es el compound component parent */}
                             <ProductCard.Image />
-                            <ProductCard.Title title={'hola mundo'}/>
+                            <ProductCard.Title title={'Coffee Mug alt'}/>
                             {/* <ProductCard.Buttons countBy={ ( value: number ): void => {
                                 throw new Error(`error: function not implemented '${value}' El ${value} es para que se calle`)
                             }} counter={0}/> //* GRACIAS AL CONTEXT NO ME HACEN FALTA LAS PROPS */}
-                            <ProductButtons />
+                            <ProductCard.Buttons />
                         </ProductCard>
 
                     </div>

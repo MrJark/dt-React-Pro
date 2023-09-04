@@ -25,9 +25,18 @@ interface Product {
 //     countBy: (value: number) => void,
 // }
 
+interface ProductCardHOCProps { // estas descripciones las he obtenido poniendo el cursor encima del elemento y copiandolo
+    ({ children, product }: ProductCardProps): JSX.Element,
+    Title: ({ title }: { title?: string }) => JSX.Element,
+    Image: ({ img  }: { img ?: string }) => JSX.Element,
+    Buttons: () => JSX.Element
+}
+
+
 export type {
     Product,
     ProductCardProps,
     // ProductButtonsProps,
     ProductContextProps,
+    ProductCardHOCProps,
 }
