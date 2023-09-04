@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import styles from '../../styles/styles.module.css';
 import { ProductContext } from '../ProductCard';
-import { PropsToProductTitle } from '../../interfaces/interfaces';
+
 
 // Tarea: intentar cambiar el título a blanco con el className ✅ Lo he hecho manteniendo las props en el propio componente pero debería haber hecho una interface específica para el ProductTitle d
 
@@ -9,7 +9,13 @@ import { PropsToProductTitle } from '../../interfaces/interfaces';
 //         { title, className }: 
 //         { title?: string, className?: string }
 //     ) => {
-export const ProductTitle = ({ title, className}: PropsToProductTitle) => {
+
+export interface Props { // es buena práctica tener este tipo de props aquí ya que son las del componente
+    title?: string,
+    className?: string
+}
+
+export const ProductTitle = ({ title, className}: Props) => {
 
     const context = useContext( ProductContext );
     const { product } = context;
