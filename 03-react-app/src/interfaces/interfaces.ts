@@ -1,7 +1,15 @@
+import { ReactElement } from "react"
 
 
 interface Props {
+    children?: ReactElement | ReactElement[], // SIEMPRE es así para los childrens. Le digo que es de tipo ReactElement pero que puede venir uno solo o puede ser un arreglo, varios childrens
     product: Product
+}
+
+interface ProductContextProps {
+    counter: number,
+    countBy: ( value: number ) => void,
+    product: Product,
 }
 
 interface Product {
@@ -12,13 +20,14 @@ interface Product {
 }
 
 /* Sub Cart Components */
-interface ProductButtonsProps {
-    counter: number,
-    countBy: (value: number) => void,
-}
+// interface ProductButtonsProps { // puedo no usar esta interface gracias al context
+//     counter: number,
+//     countBy: (value: number) => void,
+// }
 
 export type {
     Product,
     Props,
-    ProductButtonsProps,
+    // ProductButtonsProps,
+    ProductContextProps,
 }
