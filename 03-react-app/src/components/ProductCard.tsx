@@ -1,7 +1,7 @@
 
 import { createContext } from 'react';
 import { useProduct } from '../hooks/useProduct';
-import { ProductContextProps, Props } from '../interfaces/interfaces';
+import { ProductCardProps, ProductContextProps } from '../interfaces/interfaces';
 
 import styles from '../styles/styles.module.css';
 import { ProductButtons, ProductImage, ProductTitle } from './subCardComponent';
@@ -14,7 +14,7 @@ export const ProductContext = createContext({} as ProductContextProps);
 const { Provider } = ProductContext;
 
 
-export const ProductCard = ( {children, product }: Props) => {
+export const ProductCard = ( {children, product }: ProductCardProps) => {
 
     const { counter, countBy } = useProduct(); 
 
@@ -44,6 +44,7 @@ export const ProductCard = ( {children, product }: Props) => {
     )
 }
 
+// Esto es para poder llamarlos de una manera más lógica
 ProductCard.Title = ProductTitle;
 ProductCard.Image = ProductImage;
 ProductCard.Buttons = ProductButtons;

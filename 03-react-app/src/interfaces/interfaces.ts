@@ -1,7 +1,7 @@
 import { ReactElement } from "react"
 
 
-interface Props {
+interface ProductCardProps {
     children?: ReactElement | ReactElement[], // SIEMPRE es así para los childrens. Le digo que es de tipo ReactElement pero que puede venir uno solo o puede ser un arreglo, varios childrens
     product: Product
 }
@@ -27,7 +27,7 @@ interface Product {
 
 export type {
     Product,
-    Props,
+    ProductCardProps,
     // ProductButtonsProps,
     ProductContextProps,
 }
