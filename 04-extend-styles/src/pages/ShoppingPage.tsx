@@ -44,15 +44,6 @@ export const ShoppingPage = () => {
                     </ProductCard>
 
                     </div>
-
-                    <div style={{ display: "flex", flexDirection: "row", flexWrap: 'wrap'}}>
-                    <ProductCard product = { product } style={{ backgroundColor: '#70d1f8'}}>
-                        <ProductCard.Image />
-                        <ProductCard.Title />
-                        <ProductCard.Buttons />
-                    </ProductCard>
-
-                    </div>
                 </div>
             </div>
         </>
