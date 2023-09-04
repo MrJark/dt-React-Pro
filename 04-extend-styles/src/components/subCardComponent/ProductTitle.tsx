@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { CSSProperties, useContext } from 'react';
 import styles from '../../styles/styles.module.css';
 import { ProductContext } from '../ProductCard';
 
@@ -12,10 +12,11 @@ import { ProductContext } from '../ProductCard';
 
 export interface Props { // es buena práctica tener este tipo de props aquí ya que son las del componente
     title?: string,
-    className?: string
+    className?: string,
+    style?: CSSProperties,
 }
 
-export const ProductTitle = ({ title, className}: Props) => {
+export const ProductTitle = ({ title, className, style }: Props) => {
 
     const context = useContext( ProductContext );
     const { product } = context;
@@ -23,6 +24,9 @@ export const ProductTitle = ({ title, className}: Props) => {
     const titleToShow: string = title ? title : product.title;
 
     return (
-        <span className={ `${styles.productDescription} ${className}` } >{titleToShow}</span>
+        <span 
+            className={ `${styles.productDescription} ${className}` }
+            style={style}
+        >{titleToShow}</span>
     )
 }

@@ -34,14 +34,22 @@ export const ShoppingPage = () => {
                             />
                         </ProductCard>
                     </div>
+
                     <div style={{ display: "flex", flexDirection: "row", flexWrap: 'wrap'}}>
-                    <ProductCard product = { product }>
+                    <ProductCard product = { product } className="bg-dark text-white">
                         <ProductCard.Image className="custom-image" />
                         <ProductCard.Title 
-                            title={'Coffee Mug alt'}
-                            className = 'text-white'
-                        />
-                        <ProductCard.Buttons className=""/>
+                            title={'Coffee Mug alt'} />
+                        <ProductCard.Buttons className="custom-buttons"/>
+                    </ProductCard>
+
+                    </div>
+
+                    <div style={{ display: "flex", flexDirection: "row", flexWrap: 'wrap'}}>
+                    <ProductCard product = { product } style={{ backgroundColor: '#70d1f8'}}>
+                        <ProductCard.Image />
+                        <ProductCard.Title />
+                        <ProductCard.Buttons />
                     </ProductCard>
 
                     </div>

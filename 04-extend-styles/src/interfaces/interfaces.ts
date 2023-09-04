@@ -1,14 +1,15 @@
-import { ReactElement } from "react"
+
 import { Props as ProductToTitleProps } from '../components/subCardComponent/ProductTitle';
 import { Props as PropsToProductImage } from '../components/subCardComponent/ProductImage';
 import { Props as PropsToProductButtons } from '../components/subCardComponent/ProductButtons';
+import { Props as ProductCardProps } from '../components/ProductCard';
 
 
-interface ProductCardProps {
-    children?: ReactElement | ReactElement[], // SIEMPRE es así para los childrens. Le digo que es de tipo ReactElement pero que puede venir uno solo o puede ser un arreglo, varios childrens
-    product: Product,
-    className?: string // la parte del className para los styles
-}
+// interface ProductCardProps {
+//     children?: ReactElement | ReactElement[], // SIEMPRE es así para los childrens. Le digo que es de tipo ReactElement pero que puede venir uno solo o puede ser un arreglo, varios childrens
+//     product: Product,
+//     className?: string // la parte del className para los styles
+// }
 
 interface ProductContextProps {
     counter: number,
