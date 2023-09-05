@@ -14,7 +14,7 @@ export function useProduct ({ onChange, product, value = 0, initialValues }: Use
     const [counter, setCounter] = useState<number>( initialValues?.count || value );
     
     const isMounted = useRef(false);
-    console.log(initialValues);
+    // console.log(initialValues);
     
     const countBy = ( value: number ) => {
         //* Tarea: hacer el límite, maxCount ❌ he creado el nexMaxValue parecido al newValue y ya no he sabido como seguir y eso no era. Tenía que Hhacer un if
@@ -23,12 +23,16 @@ export function useProduct ({ onChange, product, value = 0, initialValues }: Use
         if ( initialValues?.maxCount ) {
             newValue = Math.min( newValue, initialValues.maxCount )
         }
-        //* const  newMaxValue = Math.min( initialValues?.maxCount || value , counter + value ) // esto no era
+        // const  newMaxValue = Math.min( initialValues?.maxCount || value , counter + value ) // esto no era, el Math.min sí pero no de esa forma
         setCounter( newValue )
         // setCounter( prev => Math.max( prev + value, 0 )); // estop significa que escogerá entre el mayor de los dos números. Así evitando que sea negativo y nos permite hacerlo en unsa sola linea de código y no hacer dos funciones distintas
         
         onChange && onChange({ count: newValue, product }); // el operador && es como si fuera un if donde si onChange es null o undefined, no ejecutará el onChange()
 
+    }
+
+    const reset = () => {
+        setCounter(initialValues?.count || value )
     }
 
     //! SON BUENAS PRÁCTICAS USAR UN useEffect PARA CADA EFECTO Y NO EL MISMO PARA VARIOS
@@ -41,8 +45,13 @@ export function useProduct ({ onChange, product, value = 0, initialValues }: Use
         isMounted.current = true;
     }, [])
 
+    const toIsMaxCountReached = !!initialValues?.count && initialValues.maxCount === counter;
+
     return{
         counter,
-        countBy
+        countBy,
+        maxCounter: initialValues?.maxCount,
+        isMaxCountReached: toIsMaxCountReached,
+        reset,
     }
 }

@@ -63,3 +63,10 @@
 .buttonAdd:hover {
     background-color: #393939;
 }
+
+.disabled {
+    border-color: #545454 !important;
+    background-color: #545454 !important;
+    color: #333;
+    cursor: no-drop ;
+}

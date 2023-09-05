@@ -9,6 +9,7 @@ interface ProductContextProps {
     counter: number,
     countBy: ( value: number ) => void,
     product: Product,
+    maxCounter?: number,
 }
 
 interface Product {
@@ -39,6 +40,15 @@ interface InitialValues { // la creo aquí para no tener una anidación dentro d
     maxCount?: number,
 }
 
+interface ProductCardHandlers {
+    count: number,
+    isMaxCountReached: boolean,
+    maxCount?: number,
+    product: Product,
+    countBy: ( value: number) => void,
+    reset: () => void,
+}
+
 export type {
     Product,
     ProductCardProps,
@@ -47,4 +57,5 @@ export type {
     ProductInCart,
     OnChangeArgs,
     InitialValues,
+    ProductCardHandlers,
 }

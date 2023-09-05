@@ -26,15 +26,22 @@ export const ShoppingPage = () => {
                             maxCount: 10
                         }}
                     >
-                        <ProductImage 
-                            className = 'custom-image'
-                        />
-                        <ProductTitle 
-                            className = 'text-white'
-                        />
-                        <ProductButtons 
-                            className = 'custom-buttons'
-                        />
+                        {   // esto lo hago por el cambio del children que ha pasado a ser una JSX.Element para que funcione el Formik
+                            ({ reset }) => ( // función que renderiza un jsx
+                                <>
+                                    <ProductImage 
+                                        className = 'custom-image'
+                                    />
+                                    <ProductTitle 
+                                        className = 'text-white'
+                                    />
+                                    <ProductButtons 
+                                        className = 'custom-buttons'
+                                    />
+                                    <button onClick={reset}>Reset</button>
+                                </>
+                            )
+                        }
                     </ProductCard>
                 </div>
             </div>
