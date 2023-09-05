@@ -29,10 +29,16 @@ interface ProductInCart extends Product { // para añadir una propiedad más a u
     count: number,
 }
 
+interface OnChangeArgs {
+    product: Product, 
+    count: number
+}
+
 export type {
     Product,
     ProductCardProps,
     ProductContextProps,
     ProductCardHOCProps,
     ProductInCart,
+    OnChangeArgs,
 }
