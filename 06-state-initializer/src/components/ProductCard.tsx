@@ -1,7 +1,7 @@
 
 import { CSSProperties, ReactElement, createContext } from 'react';
 import { useProduct } from '../hooks/useProduct';
-import { OnChangeArgs, Product, ProductContextProps } from '../interfaces/interfaces';
+import { InitialValues, OnChangeArgs, Product, ProductContextProps } from '../interfaces/interfaces';
 
 import styles from '../styles/styles.module.css';
 
@@ -17,11 +17,12 @@ export interface Props {
     style?: CSSProperties, // este es el tipo que tiene el style en las props y lo consigo igual que los otros. Poniendome encima del elemento porque si se cómo se usa, al hacerlo, con ponerme encima me dice que es
     onChange?: ( args: OnChangeArgs ) => void,
     value?: number,
+    initialValues?: InitialValues
 }
 
-export const ProductCard = ( {children, product, className, style, onChange, value }: Props) => {
+export const ProductCard = ( {children, product, className, style, onChange, value, initialValues }: Props) => {
 
-    const { counter, countBy } = useProduct({ onChange, product, value });
+    const { counter, countBy } = useProduct({ onChange, product, value, initialValues });
 
     return (
         <Provider value={{

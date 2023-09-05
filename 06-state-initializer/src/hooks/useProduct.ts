@@ -1,36 +1,45 @@
 import { useEffect, useRef, useState } from "react"
-import { OnChangeArgs, Product } from "../interfaces/interfaces";
+import { InitialValues, OnChangeArgs, Product } from "../interfaces/interfaces";
 
 
 interface UseProductArgs {
     product: Product,
     onChange?: ( args: OnChangeArgs ) => void,
     value?: number,
+    initialValues?: InitialValues,
 }
 
 
-// Tarea: hacer el hook ✅
-export function useProduct ({ onChange, product, value = 0 }: UseProductArgs ) {
-    const [counter, setCounter] = useState( value );
-
-    const isControlled = useRef( !!onChange ); // esto es para saber si está siendo controlado mediante la función. Y es useRef para que no se redibujen los componentes. La doble negación hace que sea un boolean
-
+export function useProduct ({ onChange, product, value = 0, initialValues }: UseProductArgs ) {
+    const [counter, setCounter] = useState<number>( initialValues?.count || value );
+    
+    const isMounted = useRef(false);
+    console.log(initialValues);
+    
     const countBy = ( value: number ) => {
+        //* Tarea: hacer el límite, maxCount ❌ he creado el nexMaxValue parecido al newValue y ya no he sabido como seguir y eso no era. Tenía que Hhacer un if
 
-        if (isControlled.current ) {
-            return onChange!({ count: value, product }); // el símbolo ! aquí le está diciendo a ts que 100% seguro confie en que eso se ejecuta porque siempre va a haber algo ya que lo hemos puesto en el useRef y esto se da porque el onChange es opcional
+        let  newValue = Math.max( counter + value, 0 ) // esto significa que elegirá siempre el mayor entre el counter + value o el cero
+        if ( initialValues?.maxCount ) {
+            newValue = Math.min( newValue, initialValues.maxCount )
         }
-
-        const  newValue = Math.max( counter + value, 0 ) // esto significa que elegirá siempre el mayor entre el counter + value o el cero
+        //* const  newMaxValue = Math.min( initialValues?.maxCount || value , counter + value ) // esto no era
         setCounter( newValue )
         // setCounter( prev => Math.max( prev + value, 0 )); // estop significa que escogerá entre el mayor de los dos números. Así evitando que sea negativo y nos permite hacerlo en unsa sola linea de código y no hacer dos funciones distintas
         
-        onChange && onChange({ count: newValue, product}); // el operador && es como si fuera un if donde si onChange es null o undefined, no ejecutará el onChange()
+        onChange && onChange({ count: newValue, product }); // el operador && es como si fuera un if donde si onChange es null o undefined, no ejecutará el onChange()
+
     }
 
+    //! SON BUENAS PRÁCTICAS USAR UN useEffect PARA CADA EFECTO Y NO EL MISMO PARA VARIOS
     useEffect(() => { // useEffect para controlar el carrito dependiendo del value
+        if( !isMounted.current ) return; // para extraer el valor de los hooks de react es necesario ponerles el .current
         setCounter( value );
     }, [value])
+
+    useEffect(() => { // para cambiar el valor a true solo cuando se renderiza la primera vez por eso no le he puesto ninguna dependencia
+        isMounted.current = true;
+    }, [])
 
     return{
         counter,

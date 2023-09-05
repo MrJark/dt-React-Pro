@@ -34,6 +34,11 @@ interface OnChangeArgs {
     count: number
 }
 
+interface InitialValues { // la creo aquí para no tener una anidación dentro de las props del product cart
+    count?: number,
+    maxCount?: number,
+}
+
 export type {
     Product,
     ProductCardProps,
@@ -41,4 +46,5 @@ export type {
     ProductCardHOCProps,
     ProductInCart,
     OnChangeArgs,
+    InitialValues,
 }
