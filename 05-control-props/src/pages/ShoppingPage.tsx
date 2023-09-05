@@ -1,62 +1,63 @@
-import { useState } from "react"
+
 import { ProductCard } from "../components"
 import { ProductButtons, ProductImage, ProductTitle } from "../components/subCardComponent"
 import { products } from "../constants/products"
 
 import '../styles/customStyles.css'
-import { OnChangeArgs, ProductInCart } from "../interfaces/interfaces"
+import { useShoppingCart } from "../hooks/useShoppingCart"
 
 
 export const ShoppingPage = () => {
     
-    // const [ shoppingCart, setShoppingCart ] = useState<{ [ key: string ]: ProductInCart }>({ // forma de nombrar el useState
-    //     '1': { ...product1, count: 1}, // así luce el objeto que quiero que crear
-    //     '2': { ...product2, count: 2},
-    // });
-    const [ shoppingCart, setShoppingCart ] = useState<{ [ key: string ]: ProductInCart }>({}); // queremos que este estado sea el que predomine
+    const { shoppingCart, onProductCountChange } = useShoppingCart(); // lo de abajo lo he pasado al custom hook
+    // // const [ shoppingCart, setShoppingCart ] = useState<{ [ key: string ]: ProductInCart }>({ // forma de nombrar el useState
+    // //     '1': { ...product1, count: 1}, // así luce el objeto que quiero que crear
+    // //     '2': { ...product2, count: 2},
+    // // });
+    // const [ shoppingCart, setShoppingCart ] = useState<{ [ key: string ]: ProductInCart }>({}); // queremos que este estado sea el que predomine
 
-    const onProductCountChange = ({ count, product }: OnChangeArgs) => { // es la desestructuración del event
-        // console.log('onProductCountChange', {count, product});
-        // shoppingCart[ product.id ] = { ...product, count } // funcionaría pero sería una MALA PRÁCTICA porque estaría mutando el shoppingCart
-        // console.log({count});
+    // const onProductCountChange = ({ count, product }: OnChangeArgs) => { // es la desestructuración del event
+    //     // console.log('onProductCountChange', {count, product});
+    //     // shoppingCart[ product.id ] = { ...product, count } // funcionaría pero sería una MALA PRÁCTICA porque estaría mutando el shoppingCart
+    //     // console.log({count});
         
-        setShoppingCart( oldShoppingCart => {
-            //* Tarea: eliminar el elemento cuando el count = 0 ❌ he intentado un if ( count === 0 ) return
+    //     setShoppingCart( oldShoppingCart => {
+    //         //* Tarea: eliminar el elemento cuando el count = 0 ❌ he intentado un if ( count === 0 ) return
 
-            // if ( count === 0 ) {
-            //     const { [product.id]: toDelete , ...rest } = oldShoppingCart;
-            //     // delete {...oldShoppingCart}[product.id] // otra forma de hacerlo
-            //     console.log(toDelete); // para que no salga el error
+    //         // if ( count === 0 ) {
+    //         //     const { [product.id]: toDelete , ...rest } = oldShoppingCart;
+    //         //     // delete {...oldShoppingCart}[product.id] // otra forma de hacerlo
+    //         //     console.log(toDelete); // para que no salga el error
                 
-            //     return {
-            //         ...rest
-            //     }
-            // }
-            // return {
-            //     ...oldShoppingCart,
-            //     [product.id]: { ...product, count } // forma en la cual está estructurado el producto que es como está hecho el useState: la llave y el objeto
-            // }
+    //         //     return {
+    //         //         ...rest
+    //         //     }
+    //         // }
+    //         // return {
+    //         //     ...oldShoppingCart,
+    //         //     [product.id]: { ...product, count } // forma en la cual está estructurado el producto que es como está hecho el useState: la llave y el objeto
+    //         // }
 
-            const productInCart: ProductInCart = oldShoppingCart[product.id] || { ...product, count: 0 };
+    //         const productInCart: ProductInCart = oldShoppingCart[product.id] || { ...product, count: 0 };
 
-            if ( Math.max( productInCart.count + count, 0 ) > 0 ) {  // esto decia que eligiera el valor máximo entre los dos para que así no de números negativos
-                productInCart.count += count;
+    //         if ( Math.max( productInCart.count + count, 0 ) > 0 ) {  // esto decia que eligiera el valor máximo entre los dos para que así no de números negativos
+    //             productInCart.count += count;
 
-                return {
-                    ...oldShoppingCart,
-                    [product.id] : productInCart
-                }
-            }
+    //             return {
+    //                 ...oldShoppingCart,
+    //                 [product.id] : productInCart
+    //             }
+    //         }
 
-            // Si no se ejecuta lo anterior👆🏽, hay que eliminar el producto👇🏼
-            const { [product.id]: toDelete , ...rest } = oldShoppingCart;
+    //         // Si no se ejecuta lo anterior👆🏽, hay que eliminar el producto👇🏼
+    //         const { [product.id]: toDelete , ...rest } = oldShoppingCart;
 
-            return {
-                ...rest
-            };
+    //         return {
+    //             ...rest
+    //         };
 
-        })
-    }
+    //     })
+    // }
 
     return (
         <>
