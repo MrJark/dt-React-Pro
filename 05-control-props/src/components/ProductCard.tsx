@@ -16,11 +16,12 @@ export interface Props {
     className?: string, // la parte del className para los styles
     style?: CSSProperties, // este es el tipo que tiene el style en las props y lo consigo igual que los otros. Poniendome encima del elemento porque si se cómo se usa, al hacerlo, con ponerme encima me dice que es
     onChange?: ( args: OnChangeArgs ) => void,
+    value?: number,
 }
 
-export const ProductCard = ( {children, product, className, style, onChange }: Props) => {
+export const ProductCard = ( {children, product, className, style, onChange, value }: Props) => {
 
-    const { counter, countBy } = useProduct({ onChange, product });
+    const { counter, countBy } = useProduct({ onChange, product, value });
 
     return (
         <Provider value={{

@@ -68,7 +68,7 @@ export const ShoppingPage = () => {
                 </div>
                 <div className="shopping-cart">
                     {/* {
-                        // Tarea: intentar hacer el carrito dinámico y que desaparezca cuando no hay productos ❌ se me había ocurrido la siguiente solución pero no funciona así
+                        //* Tarea: intentar hacer el carrito dinámico y que desaparezca cuando no hay productos ❌ se me había ocurrido la siguiente solución pero no funciona así
                         products.map( product => (
                             !product 
                                 ? ''
@@ -98,7 +98,8 @@ export const ShoppingPage = () => {
                                 key={key}
                                 product={ product }
                                 className = 'bg-dark text-white'
-                                style={{ width: '150px' }}
+                                style = {{ width: '150px' }}
+                                value = { product.count }
                             >
                                 <ProductImage 
                                     className = 'custom-image'
