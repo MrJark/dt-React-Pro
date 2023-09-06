@@ -41,24 +41,44 @@ La base que voy a utilizar en futuros proyectos. La he inicializado con **pnpm**
   4. Importo los paquetes que me hacen falta **yarn add -D rollup-plugin-postcss,  yarn add -D @rollup/plugin-image** que son para enseñarle a tsdx cómo cargar los paquetes de css y las imágenes
 
   5. Creo el archivo **typings.d.ts** en el **src** en el cual tengo que tener la siguiente configuración:
+    
     ```
-    declare module '*.css' {
-        const content: { [className: string]: string };
-        export default content;
-    }
+        declare module '*.css' {
+            const content: { [className: string]: string };
+            export default content;
+        }
 
-    declare module "*.jpg" {
-        const value: any;
-        export default value;
-    }
+        declare module "*.jpg" {
+            const value: any;
+            export default value;
+        }
 
-    declare module "*.png" {
-        const value: any;
-        export default value;
-    }
+        declare module "*.png" {
+            const value: any;
+            export default value;
+        }
     ```
     Donde el .jpg y .png son los tipos de archivos que estoy usando y cargando
   
   6. Para evitar ciertos errores, importar React de 'react' ya que según en que actualización estés hará falta
 
   7. Crear un repositorio en GitHub para tenerlo guardado en la nube
+
+  8. Para hacer las pruebas hay que instalar las siguientes dependencias: **yarn add --dev jest babel-jest @babel/preset-env @babel/preset-react react-test-renderer**
+
+  9. Y para los typings las siguientes instalaciones: **yarn add @types/react @types/react-dom @types/react-test-renderer**
+
+  10. Configuración de JEST en el package.json:
+
+    ```
+        "jest":{
+            "moduleNameMapper": {
+            "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "identity-obj-proxy",
+            "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+            }
+        }
+        "scripts": {
+            ...
+            "test:watch": "tsdx test --watch"
+        }
+    ```
