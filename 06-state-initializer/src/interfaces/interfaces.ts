@@ -5,6 +5,7 @@ import { Props as PropsToProductButtons } from '../components/subCardComponent/P
 import { Props as ProductCardProps } from '../components/ProductCard';
 
 
+
 interface ProductContextProps {
     counter: number,
     countBy: ( value: number ) => void,
@@ -41,7 +42,7 @@ interface InitialValues { // la creo aquí para no tener una anidación dentro d
 }
 
 interface ProductCardHandlers {
-    count: number,
+    theCount: number,
     isMaxCountReached: boolean,
     maxCount?: number,
     product: Product,

@@ -27,7 +27,8 @@ export const ShoppingPage = () => {
                         }}
                     >
                         {   // esto lo hago por el cambio del children que ha pasado a ser una JSX.Element para que funcione el Formik
-                            ({ reset }) => ( // función que renderiza un jsx
+                            ({ reset, theCount, countBy, maxCount }) => ( // función que renderiza un jsx
+                                //* Tarea: exponer todos los args que vengan y hacer que funcionen. Los btns tienen que ser de +- 2
                                 <>
                                     <ProductImage 
                                         className = 'custom-image'
@@ -38,7 +39,31 @@ export const ShoppingPage = () => {
                                     <ProductButtons 
                                         className = 'custom-buttons'
                                     />
-                                    <button onClick={reset}>Reset</button>
+                                    {/* Tarea */}
+                                    <div style={{ display: 'flex', placeContent: 'center', gap: '4px', paddingBottom: '6px'}}>
+                                        <button onClick={() => countBy(-2)}>-2</button>
+                                        <button onClick={reset}>Reset</button>
+                                        {/* {   // forma en la cual lo ha hecho el profesor. Ten en cuenta que aquí hace falta traer el isMax... pero a mi me gusta más la mia
+                                            ( !isMaxCountReached && 
+                                                <button 
+                                                    onClick={() => {
+                                                        countBy(2)
+                                                    }}
+                                                >+2</button>
+                                            )
+                                        } */}
+                                        {
+                                            <button 
+                                                onClick={() => {
+                                                    if( theCount === maxCount ) return
+                                                    countBy(2)
+                                                }}
+                                            >+2</button>
+                                        }
+                                    </div>
+                                    <div>
+                                        <span>Count: {theCount}</span>
+                                    </div>
                                 </>
                             )
                         }
