@@ -60,3 +60,5 @@ La base que voy a utilizar en futuros proyectos. La he inicializado con **pnpm**
     Donde el .jpg y .png son los tipos de archivos que estoy usando y cargando
   
   6. Para evitar ciertos errores, importar React de 'react' ya que según en que actualización estés hará falta
+
+  7. Crear un repositorio en GitHub para tenerlo guardado en la nube
