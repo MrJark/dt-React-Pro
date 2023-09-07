@@ -18,6 +18,9 @@ button {
 
 span, .error-message {
     color: #ef3636;
+    padding: 4px 0px 8px 0px;
+    display: flex;
+    justify-content: left;
 }
 
 .has-error {

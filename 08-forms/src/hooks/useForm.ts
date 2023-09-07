@@ -11,11 +11,20 @@ export function useFrom <T> ( initState: T) { // la T siginifica que es de tipo 
 
 
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         setFormData( prev => ({
             ...prev,
             [e.target.name]: e.target.value
         }));
+    }
+
+    const resetForm = () => {
+        setFormData({ ...initState })
+    }
+
+    const isValidEmail = ( email: string ) => {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
     }
 
     return {
@@ -26,5 +35,7 @@ export function useFrom <T> ( initState: T) { // la T siginifica que es de tipo 
         // methods
         setFormData,
         onChange,
+        resetForm,
+        isValidEmail,
     }
 }
