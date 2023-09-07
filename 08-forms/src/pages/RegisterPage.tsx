@@ -1,31 +1,21 @@
-import { ChangeEvent, FormEvent, MouseEvent, useState } from 'react';
+import { FormEvent } from 'react';
 
 import '../styles/styles.css'
+import { useFrom } from '../hooks/useForm';
 
-import { InitialValue } from '../interfaces/interfaces';
 
-const initialValue: InitialValue = {
-    name: '',
-    email: '',
-    password: '',
-    secondPassword: '',
-}
 
 export const RegisterPage = () => {
+
+    const { onChange, formData,  } = useFrom({ // lo que inicializa el useForm es lo que moldea al formData
+        name: '',
+        email: '',
+        password: '',
+        secondPassword: '',
+    });
     
-    // Se puede manejar el estado de los formularios mediante un useState para cada uno de los campos y tener el valor inicial como un '' o similar pero también puedo manejarlo con uno solo
-    const [registerDate, setRegisterDate] = useState(initialValue);
-    const { email, name, password, secondPassword } = registerDate;
-
-
-    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target.value);
-        setRegisterDate( prev => ({
-            ...prev,
-            [e.target.name]: e.target.value
-        }));
-    }
-
+    const { name, email, password, secondPassword } = formData;
+ 
     const onSubmit = (e: FormEvent<HTMLFormElement>) => { // para saber el tipo del evento he tenido que hacer en el onSumbit del form (e) => onChange(e) y mantener el mouse encima y solo me lo dice
         e.preventDefault();
     }
