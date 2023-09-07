@@ -1,6 +1,7 @@
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 
 import {RegisterPage} from '../pages/RegisterPage.jsx'
+import { FormikBasicPage } from '../pages/FormikBasicPage.js';
 
 
 export const Navigation = () => {
@@ -17,7 +18,7 @@ export const Navigation = () => {
                             >Register Page</NavLink>
                         </li>
                         <li>
-                            <NavLink to='/about' className={ ({ isActive }) => isActive ? 'nav-active' : ''}>About</NavLink>
+                            <NavLink to='/formik' className={ ({ isActive }) => isActive ? 'nav-active' : ''}>Formik</NavLink>
                         </li>
                         <li>
                             <NavLink to='/user' className={ ({ isActive }) => isActive ? 'nav-active' : ''}>User</NavLink>
@@ -26,7 +27,9 @@ export const Navigation = () => {
                 </nav>
 
                 <Routes>
-                    <Route path='/' element={ <RegisterPage /> }/>
+                    <Route path='/register' element={ <RegisterPage /> }/>
+                    <Route path='/formik' element={ <FormikBasicPage /> }/>
+                    <Route path='/user' element={ <p><a style={{ color: 'white', fontSize: '30px', }} href="https://linkedin.com/in/mrjark">MrJark</a></p> }/>
                 </Routes>
             </div>
         </BrowserRouter>

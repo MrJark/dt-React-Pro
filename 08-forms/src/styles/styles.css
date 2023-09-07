@@ -26,3 +26,8 @@ span, .error-message {
 .has-error {
     border: 1px solid #ef3636;
 }
+
+label {
+    text-align: left;
+    padding: 12px 0px 2px 0px;
+}
