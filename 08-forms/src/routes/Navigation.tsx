@@ -1,6 +1,6 @@
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 
-
+import {RegisterPage} from '../pages/RegisterPage.jsx'
 
 
 export const Navigation = () => {
@@ -12,9 +12,9 @@ export const Navigation = () => {
                     <ul>
                         <li>
                             <NavLink 
-                                to='/' 
+                                to='/register' 
                                 className={ ({ isActive }) => isActive ? 'nav-active' : ''}
-                            >Home</NavLink>
+                            >Register Page</NavLink>
                         </li>
                         <li>
                             <NavLink to='/about' className={ ({ isActive }) => isActive ? 'nav-active' : ''}>About</NavLink>
@@ -25,9 +25,9 @@ export const Navigation = () => {
                     </ul>
                 </nav>
 
-                {/* <Routes>
-                    <Route path='/' element={ <h1>Home</h1> }/>
-                </Routes> */}
+                <Routes>
+                    <Route path='/' element={ <RegisterPage /> }/>
+                </Routes>
             </div>
         </BrowserRouter>
     )
