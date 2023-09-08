@@ -8,7 +8,7 @@ export const FormikYupPage = () => {
 
 
 
-    const formik = useFormik({ // es común que se llame formik
+    const formik = useFormik({ // es común que se llame formik pero puede tener otros nombres
         initialValues: { // este initial es como yo quiero que sea este formulario pero puede tener la forma que yo quiera
             firstName: '',
             lastName: '',
@@ -32,7 +32,9 @@ export const FormikYupPage = () => {
             
         })
     })
-    const { handleChange, values, handleSubmit, errors, touched, handleBlur } = formik;
+    const { 
+        // handleChange, values,  handleBlur, // los comento gracias al getFieldProps
+        handleSubmit, errors, touched, getFieldProps } = formik;
 
     return (
         <div>
@@ -42,30 +44,34 @@ export const FormikYupPage = () => {
                 <label htmlFor="firstName">First Name</label>
                 <input 
                     type="text" 
-                    name='firstName'
-                    onBlur={ handleBlur }
-                    onChange={ handleChange }
-                    value={ values.firstName } // este value.firstName es lo que has definido arriba yo, no viene nativo. Lo que si es native es el values que hace referencia a lo que has definido
+                    // name='firstName'
+                    // onBlur={ handleBlur }
+                    // onChange={ handleChange }
+                    // value={ values.firstName } // este value.firstName es lo que has definido arriba yo, no viene nativo. Lo que si es native es el values que hace referencia a lo que has definido
+                    // las cuatro propiedades de arriba se pueden sustituir con la desestructuración del objeto getFieldProps y al cual se le pasa el name del elemento y ya ( y se desestructura, sino error )
+                    { ...getFieldProps('firstName')}
                 />
                 { touched.firstName && errors.firstName && <span>{ errors.firstName }</span> }
 
                 <label htmlFor="lastName">Last Name</label>
                 <input 
                     type="text" 
-                    name='lastName'
-                    onBlur={ handleBlur }
-                    onChange={ handleChange }
-                    value={ values.lastName }
+                    // name='lastName'
+                    // onBlur={ handleBlur }
+                    // onChange={ handleChange }
+                    // value={ values.lastName }
+                    { ...getFieldProps('lastName')}
                 />
                 { touched.lastName && errors.lastName && <span>{ errors.lastName }</span> }
 
                 <label htmlFor="emailAdress">Email Adress</label>
                 <input 
                     type="email" 
-                    name='email'
-                    onBlur={ handleBlur }
-                    onChange={ handleChange }
-                    value={ values.email }
+                    // name='email'
+                    // onBlur={ handleBlur }
+                    // onChange={ handleChange }
+                    // value={ values.email }
+                    { ...getFieldProps('email')}
                 />
                 { touched.email && errors.email && <span>{ errors.email }</span> }
 
