@@ -1,7 +1,8 @@
-import { Formik, Form } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup'; // esto significa: importa TODO y dale el nombre de Yup desde yup
 import '../styles/styles.css';
 import { MyTextInput } from '../components/MyTextInput';
+import { MySelect } from '../components/MySelect';
 
 
 
@@ -62,6 +63,25 @@ export const FormikAbstraction = () => {
                                 type='email'
                             />
 
+                            <MySelect label='Job Type' name='jobType' >
+                                <Field name='jobType' as='select'>
+                                    <option value="pick-something">Pick someting</option>
+                                    <option value="developer">Developer</option>
+                                    <option value="deseigner">Designer</option>
+                                    <option value="merketer">Marketer</option>
+                                    <option value="growth-manager">Growth Manager</option>
+                                    <option value="it-junior">Jr. IT</option>
+                                </Field>
+                            </MySelect>
+                            {/* el errormessage y el label los puedo eliminar gracias al MySelect y las option podría si se lo mando como un objeto al propio MySelect */}
+                            {/* <label htmlFor="jobType">Job Type</label> */}
+                            {/* <ErrorMessage name='jobType' component='span' /> */}
+
+                            <label>
+                                <Field name='terms' type='checkbox'/>
+                                Terms and Conditions
+                            </label>
+                            <ErrorMessage name='terms' component='span' />
 
                             <button 
                                 type='submit'
