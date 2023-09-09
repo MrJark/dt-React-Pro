@@ -9,6 +9,9 @@ const initialValue: InitialValue = {
     secondPassword: '',
 }
 
+const initialValuesToDynamicForm: { [x: string]: any } = {};
+
 export {
     initialValue,
+    initialValuesToDynamicForm,
 }

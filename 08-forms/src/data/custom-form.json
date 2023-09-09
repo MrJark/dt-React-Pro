@@ -1,0 +1,60 @@
+[
+    {
+        "type": "input",
+        "name": "firstName",
+        "placeholder": "Chema",
+        "label": "First Name",
+        "value": ""
+    },
+    {
+        "type": "input",
+        "name": "lastName",
+        "placeholder": "Ferrandez",
+        "label": "Last Name",
+        "value": ""
+    },
+    {
+        "type": "email",
+        "name": "email",
+        "placeholder": "chema@gmail.com",
+        "label": "Email",
+        "value": ""
+    },
+    {
+        "type": "input",
+        "name": "password",
+        "placeholder": "******",
+        "label": "Password",
+        "value": ""
+    },
+    {
+        "type": "select",
+        "name": "favoritGame",
+        "placeholder": "",
+        "label": "Favorite Game",
+        "value": "",
+        "options": 
+            [
+                {
+                    "id": 1,
+                    "label": "Super Mario"
+                },
+                {
+                    "id": 2,
+                    "label": "Metal Gear"
+                }, 
+                {
+                    "id": 3,
+                    "label": "Resident Evil"
+                },
+                {
+                    "id": 4,
+                    "label": "Pokemon"
+                },
+                {
+                    "id": 5,
+                    "label": "Zelda"
+                }
+            ]
+    }
+]
