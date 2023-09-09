@@ -64,12 +64,12 @@ export const FormikAbstraction = () => {
                             type='email' />
 
                         <MySelect label='Job Type' name='jobType'>
-                                <option value="pick-something">Pick someting</option>
-                                <option value="developer">Developer</option>
-                                <option value="deseigner">Designer</option>
-                                <option value="merketer">Marketer</option>
-                                <option value="growth-manager">Growth Manager</option>
-                                <option value="it-junior">Jr. IT</option>
+                            <option value="pick-something">Pick someting</option>
+                            <option value="developer">Developer</option>
+                            <option value="deseigner">Designer</option>
+                            <option value="merketer">Marketer</option>
+                            <option value="growth-manager">Growth Manager</option>
+                            <option value="it-junior">Jr. IT</option>
                         </MySelect>
                         {/* el errormessage y el label los puedo eliminar gracias al MySelect y las option podría si se lo mando como un objeto al propio MySelect */}
                         {/* <label htmlFor="jobType">Job Type</label> */}
