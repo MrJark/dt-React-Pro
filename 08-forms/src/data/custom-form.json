@@ -4,35 +4,60 @@
         "name": "firstName",
         "placeholder": "Chema",
         "label": "First Name",
-        "value": ""
+        "value": "",
+        "validations": [
+            {
+                "type": "required"
+            }
+        ]
     },
     {
         "type": "input",
         "name": "lastName",
         "placeholder": "Ferrandez",
         "label": "Last Name",
-        "value": ""
+        "value": "",
+        "validations": [
+            {
+                "type": "required"
+            }
+        ]
     },
     {
         "type": "email",
         "name": "email",
         "placeholder": "chema@gmail.com",
         "label": "Email",
-        "value": ""
+        "value": "",
+        "validations": [
+            {
+                "type": "required"
+            }
+        ]
     },
     {
         "type": "input",
         "name": "password",
         "placeholder": "******",
         "label": "Password",
-        "value": ""
+        "value": "",
+        "validations": [
+            {
+                "type": "required"
+            }
+        ]
     },
     {
         "type": "select",
         "name": "favoritGame",
-        "placeholder": "",
+        "placeholder": "******",
         "label": "Favorite Game",
         "value": "",
+        "validations": [
+            {
+                "type": "required"
+            }
+        ],
         "options": 
             [
                 {
