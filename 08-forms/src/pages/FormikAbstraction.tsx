@@ -1,10 +1,12 @@
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup'; // esto significa: importa TODO y dale el nombre de Yup desde yup
 import '../styles/styles.css';
-import { MyTextInput } from '../components/MyTextInput';
-import { MySelect } from '../components/MySelect';
-import { MyCheckbox } from '../components/MyCheckbox';
 
+// import { MyTextInput } from '../components/MyTextInput';
+// import { MySelect } from '../components/MySelect';
+// import { MyCheckbox } from '../components/MyCheckbox';
+
+import { MyCheckbox, MySelect, MyTextInput } from '../components'
 
 
 

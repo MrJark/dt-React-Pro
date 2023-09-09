@@ -1,4 +1,4 @@
-import { useField } from "formik"
+import { ErrorMessage, useField } from "formik"
 
 
 
@@ -20,12 +20,13 @@ export const MyCheckbox = ({ label, ...props }: Props ) => { // desestructuraci√
                 <input type="checkbox" {...field} {...props} />
                 {label}
             </label>
+            <ErrorMessage name ={props.name} component='span'/>
 
-            {
+            {/* // Lo comento porque con el componente ErrorMessage me puedo ahorrar este c√≥digo
                 meta.touched && meta.error && (
                     <span className="error">{meta.error}</span>
                 )
-            }
+            */}
         </>
     )
 }
