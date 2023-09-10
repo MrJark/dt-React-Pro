@@ -3,7 +3,7 @@ import './CSS/MyLabel.css'
 // Para modificar el comportamiento lo hago a través de las props
 // la sintaxis de /** */ y el contenido es una especie de titulo para las props que se ve en storybook en la parte de los docs
 /**
- * * Tarea crear y que funcione: ✅
+ * * Tarea crear y que funcione:
  * allCaps?: boolean,
  * color?: 3 son las selecciones que podría tener que son los que hay en el css
  * fontColor: string este se tiene que aplicar al color del texto del span
@@ -23,34 +23,46 @@ interface Porps {
      * All Caps
      */
     allCaps?: boolean,
+    
+    /**
+     * All Caps
+     */
+    toRounded?: boolean,
 
     /**
-     * Background Color
+     * Rounded Style
      */
-    backgroundColor?: 'background-black' | 'background-primary' | 'background-secondary' | 'background-tertiary',
+    roundedStyle?: 'background-rounded',
 
     /**
-     * FontColor
+     * The Background
      */
-    fontColor?: 'text-black' | 'text-primary' | 'text-secondary' | 'text-tertiary',
+    theBackground?: string, 
+
+    /**
+     * Font Color
+     */
+    fontColor?: string,
 }
 
 export const MyLabel = ({ 
     // estos elementos que ponga aquí son los que aparecen en la fila 'default' de story y si no pongo nada, no aparece nada en default
     label, 
     size = 'h1',
-    backgroundColor,
+    roundedStyle,
     fontColor,
-    allCaps,
+    toRounded = false,
+    theBackground,
+    allCaps = false,
 }: Porps) => {
     return (
         <span 
             className={`
                 ${size} 
-                ${backgroundColor} 
-                ${fontColor} 
-                ${allCaps}
+                ${ toRounded ? roundedStyle : ''}
             `}
-        >{label}</span>
+            style={{ color: fontColor, backgroundColor: theBackground }}
+            
+        >{ allCaps ? label.toUpperCase() : label }</span>
     )
 }

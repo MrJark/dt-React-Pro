@@ -60,3 +60,8 @@ body {
     border: 2px solid #ee6c4d;
     background-color: #ee6c4d;
 }
+
+.background-rounded {
+    padding: 8px 12px;
+    border-radius: 16px;
+}

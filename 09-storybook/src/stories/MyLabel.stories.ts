@@ -13,6 +13,12 @@ const meta = { // la meta es la info del mismo componente
     argTypes: { // puedes tener la capacidad de modificar el display del componente en story [Link](https://github.com/storybookjs/storybook/blob/91e9dee33faa8eff0b342a366845de7100415367/addons/controls/README.md#control-annotations)
         size: {
             control: 'inline-radio'
+        },
+        fontColor: {
+            control: 'color'
+        },
+        theBackground: {
+            control: 'color'
         }
     }
 } satisfies Meta<typeof MyLabel>; // satisfies es propio de js
