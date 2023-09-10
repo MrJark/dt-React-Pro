@@ -4,7 +4,7 @@ import { MyLabel } from "../components/MyLabel";
 
 
 const meta = { // la meta es la info del mismo componente
-    title: 'MyLabel', // este es el title del componente pero a la vez es el path, si pongo /examples/MyLabel apareceá en la carpeta examples. Si pongo ui/labels/MyLabel creará la carpeta Ui que a su vez tendrá la de labels y que dentro estará el componente MyLabel
+    title: 'UI/labels/MyLabel', // este es el title del componente pero a la vez es el path, si pongo /examples/MyLabel apareceá en la carpeta examples. Si pongo ui/labels/MyLabel creará la carpeta Ui que a su vez tendrá la de labels y que dentro estará el componente MyLabel
     component: MyLabel,
     tags: ['autodocs'],
     parameters: {
