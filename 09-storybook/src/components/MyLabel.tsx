@@ -3,7 +3,7 @@ import './CSS/MyLabel.css'
 // Para modificar el comportamiento lo hago a través de las props
 // la sintaxis de /** */ y el contenido es una especie de titulo para las props que se ve en storybook en la parte de los docs
 /**
- * * Tarea crear y que funcione:
+ * * Tarea crear y que funcione: ✅
  * allCaps?: boolean,
  * color?: 3 son las selecciones que podría tener que son los que hay en el css
  * fontColor: string este se tiene que aplicar al color del texto del span
