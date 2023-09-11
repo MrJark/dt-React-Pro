@@ -1,0 +1,67 @@
+body {
+    font-family: 'Ubuntu', 'Lucida Sans', Arial, sans-serif;
+}
+
+.label {
+    font-family: 'Ubuntu', 'Lucida Sans', Arial, sans-serif;
+}
+
+.h1 {
+    font-size: 30px;
+}
+.h2 {
+    font-size: 25px;
+}
+.h3 {
+    font-size: 20px;
+}
+.p {
+    font-size: 14px;
+}
+
+.default {
+    color: black;
+    background-color: none;
+}
+.text-black {
+    color: #333;
+}
+.text-primary {
+    color: #3d5a80;
+}
+.text-secondary {
+    color: #98c1d9;
+}
+.text-tertiary {
+    color: #ee6c4d;
+}
+
+.background-black {
+    padding: 8px 12px;
+    border-radius: 16px;
+    border: 2px solid #333;
+    background-color: #333;
+}
+.background-primary {
+    padding: 8px 12px;
+    border-radius: 16px;
+    border: 2px solid #3d5a80;
+    background-color: #3d5a80;
+}
+.background-secondary {
+    padding: 8px 12px;
+    border-radius: 16px;
+    border: 2px solid #98c1d9;
+    background-color: #98c1d9;
+}
+.background-tertiary {
+    padding: 8px 12px;
+    border-radius: 16px;
+    border: 2px solid #ee6c4d;
+    background-color: #ee6c4d;
+}
+
+.background-rounded {
+    padding: 8px 12px;
+    border-radius: 16px;
+}
