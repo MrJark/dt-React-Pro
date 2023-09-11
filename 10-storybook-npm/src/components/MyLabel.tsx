@@ -8,7 +8,7 @@ import './CSS/MyLabel.css'
  * color?: 3 son las selecciones que podría tener que son los que hay en el css
  * fontColor: string este se tiene que aplicar al color del texto del span
  */
-interface Porps {
+export interface Porps {
     /**
      * Text to display
      */
