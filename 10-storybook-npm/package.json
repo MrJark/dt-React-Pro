@@ -11,6 +11,11 @@
     "url": "https://github.com/MrJark/dt-React-Pro/tree/main/10-storybook-npm",
     "type": "git"
   },
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=18.0.0",
+    "typescript": ">=4.0.0"
+  },
   "release": {
     "branches": [
       "main"
@@ -22,12 +27,13 @@
   ],
   "scripts": {
     "dev": "npm run storybook",
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && tsc && npm run copy-files",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "clean": "rimraf dist/"
+    "clean": "rimraf dist/",
+    "copy-files": "copyfiles -u 1 src/**/*.css dist/"
   },
   "dependencies": {
     "react": "18.2.0",

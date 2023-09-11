@@ -11,8 +11,11 @@ He iniciado y creado el repo con **vite y `pnpm`**
 - Cada vez que se hace un build, se necesita borrar y volver a crear la carpeta dist, para ello voy a instalar como dependencias [Rinfaf](https://www.npmjs.com/package/rimraf) para que borre la carpeta de manera automática **pnpm i -D rimraf** y [Copyfiles](https://www.npmjs.com/package/copyfiles) para que haga la copia de todos los elementos nuevos o modificaciones y la cree de nuevo **pnpm i -D copyfiles**
 
   En la parte de los **scripts** del archivo **package.json** necesitas colocar la siguiente linea `"clean": "rimraf dist/"` para que borre **solo** la carpeta dist
+
+  Y ahora para copiar los files, creas en la parte de los **scrips** la siguiente linea: `"copy-files": "copyfiles -u 1 src/**/*.css dist/"` para tener los archivos de css porque sino no se copiaran
   
-  Y en la parte del "build" debes colorcar `"build": "npm run clean && tsc"` para que la borre y de inmediato la cree otra vez
+  Y en la parte del "build" debes colorcar `"build": "npm run clean && tsc && npm run copy-files"` para que la borre y de inmediato la cree otra vez
+
 
 ## Comentarios
 
