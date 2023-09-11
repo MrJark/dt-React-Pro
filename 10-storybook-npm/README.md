@@ -16,7 +16,7 @@ He iniciado y creado el repo con **vite y `pnpm`**
   
   Y en la parte del "build" debes colorcar `"build": "npm run clean && tsc && npm run copy-files"` para que la borre y de inmediato la cree otra vez
 
-- Verionamiento automático a través de [semantic-release](https://www.npmjs.com/package/semantic-release) con el comando **pnpm i -D semantic-release** y añadiendo en el **package.json** la siguiente configuración:
+- Verionamiento automático a través de [semantic-release](https://www.npmjs.com/package/semantic-release), *leer la doc para saber como funciona* además de quitar el **dist** del **gitingone**, con el comando **pnpm i -D semantic-release** y añadiendo en el **package.json** la siguiente configuración:
 
   ```json
     "plugins": [
