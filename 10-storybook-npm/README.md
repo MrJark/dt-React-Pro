@@ -32,3 +32,5 @@ He iniciado y creado el repo con **vite y `pnpm`**
 ## Comentarios
 
 - Si quiero tenerlo en Github pages, tengo que renombrar la carpeta **storybook-static** por **docs**
+
+- **Necesitas crear una secret key de npm y de github para poder subir el repo**
