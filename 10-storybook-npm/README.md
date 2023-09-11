@@ -2,7 +2,7 @@
 
 He iniciado y creado el repo con **vite y `pnpm`**
 
-## Instalaciones
+## Instalaciones para el despliegue a npm
 
 - Voy a usar [Storybook](https://storybook.js.org/docs/react/get-started/install) con **npx storybook@latest init**
   
@@ -16,6 +16,18 @@ He iniciado y creado el repo con **vite y `pnpm`**
   
   Y en la parte del "build" debes colorcar `"build": "npm run clean && tsc && npm run copy-files"` para que la borre y de inmediato la cree otra vez
 
+- Verionamiento automático a través de [semantic-release](https://www.npmjs.com/package/semantic-release) con el comando **pnpm i -D semantic-release** y añadiendo en el **package.json** la siguiente configuración:
+
+  ```json
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/github",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ]
+  ```
 
 ## Comentarios
 
