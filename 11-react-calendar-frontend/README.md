@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## **yarn** para instalar los paquetes
+
+Para que funcione este app, tienes que tener además, el backend corriendo sino te dará un error fetch
+
 ## Available Scripts
 
 In the project directory, you can run:
