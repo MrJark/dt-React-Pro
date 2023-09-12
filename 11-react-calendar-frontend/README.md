@@ -10,6 +10,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
   Para solucionarlo solo tienes que ejecutar el comando `export NODE_OPTIONS=--openssl-legacy-provider` en la terminal dentro de esta carpeta. Esta solución la he encontrado en [Stackoverflow](https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported)
 
+- Para levantar el poryecto en el service worker **serve -s build**
+
 Para que funcione este app, tienes que tener además, el backend corriendo sino te dará un error fetch
 
 ## Available Scripts
