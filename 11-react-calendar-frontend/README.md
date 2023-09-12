@@ -2,6 +2,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## **yarn** para instalar los paquetes
 
+- A veeces al hacer el build puede darte un error del tipo:
+  
+  ```
+    Error: error:0308010C:digital envelope routines::unsupported
+  ```
+
+  Para solucionarlo solo tienes que ejecutar el comando `export NODE_OPTIONS=--openssl-legacy-provider` en la terminal dentro de esta carpeta. Esta solución la he encontrado en [Stackoverflow](https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported)
+
 Para que funcione este app, tienes que tener además, el backend corriendo sino te dará un error fetch
 
 ## Available Scripts
