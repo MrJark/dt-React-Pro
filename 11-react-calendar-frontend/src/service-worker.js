@@ -70,3 +70,55 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
+
+// Lógica sin WORKBOX. Hecho de forma manual
+
+// self hace referencia al service worker
+self.addEventListener('install', async ( e ) => { // este es el proceso de instalación del service worker
+  console.log('installing');
+
+  const cache = await caches.open('cache-v1'); // *
+
+  await cache.addAll([ // lo de aquí dentro es lo que añado al cache y el nombre al cual estoy poniendo esto es al de 'cache-1' que he colocado arriba *
+    'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css',
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css',
+    '/favicon.ico'
+  ])
+});
+
+const apiOfflineFallbacks = [
+  'http://localhost:4000/api/events',
+  'http://localhost:4000/api/auth/renew'
+]
+
+self.addEventListener('fetch', (e) => { // traducción: cuando entre un 'fetch, ejecuta la siguiente funcion:
+  // console.log(e.request.url);
+
+  // la comento porque ahora tengo dos urls
+  // if( e.request.url !== 'http://localhost:4000/api/auth/renew') return ; // esta url la he cogido de la consola al hacer el log anterior comentado
+  
+  if( !apiOfflineFallbacks.includes( e.request.url ) ) return;
+  const res = fetch( e.request )
+    .then( response => {
+
+      if ( !response ) { // esto es un por si acaso
+        return caches.match( e.request )
+      }
+
+      // guardar en cache la respuesta
+      caches.open('cache-dynamic')
+        .then( cache => {
+          cache.put( e.request, response )
+        })
+
+      return response.clone(); // tienes que clonarlo para poder volverlo a usarlo
+    })
+    .catch( err => {
+      console.log('offline');
+
+      return caches.match( e.request )
+    })
+
+  e.responseWith( res );
+
+})

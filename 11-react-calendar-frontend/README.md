@@ -12,6 +12,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - Para levantar el poryecto en el service worker **serve -s build**
 
+-  [Explicación del sercive worker](https://web.dev/service-worker-lifecycle/)
+
 Para que funcione este app, tienes que tener además, el backend corriendo sino te dará un error fetch
 
 ## Available Scripts
