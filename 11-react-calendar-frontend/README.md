@@ -18,7 +18,15 @@ Para que funcione este app, tienes que tener además, el backend corriendo sino 
 
 ## Intalaciones
 
-- Workbox **sudo npm install workbox-cli --global**
+- Workbox **sudo npm install workbox-cli --global**. 
+
+  Para usar el CLI tienes que escribir en esta carpeta de comandos **workbox wizard**. Aquí te pregunta el root y le tienes que decir el **build**. Luego te pregunta que archivos quieres que se haga un pre-chache ( normalmente lo queieres todo ).
+
+  Te pregunta luego que si quieres guardarlo en el propio build, y sí. Y luego te pedirá que si queires crear un config y sí también y te crea el workbox-config.js.
+
+  Una vez todo esto, te pide que ejecutes **workbox generateSW workbox-config.js**. Este comando lo tendrás que ejecutar cada vez que hagas algún cambio en la aplicación para que se guardes y creará el SW por defecto que venga en esa config
+
+- 
 
 ## Available Scripts
 
