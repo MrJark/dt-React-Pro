@@ -16,6 +16,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Para que funcione este app, tienes que tener además, el backend corriendo sino te dará un error fetch
 
+## Intalaciones
+
+- Workbox **sudo npm install workbox-cli --global**
+
 ## Available Scripts
 
 In the project directory, you can run:
